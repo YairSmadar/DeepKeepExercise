@@ -59,8 +59,13 @@ def create_app(model_handler: SegmentationModelAI) -> FastAPI:
         torch_pred = output.argmax(axis=0).astype(np.uint8)  # Convert to uint8 for image representation
 
         # Create a color palette for visualization
+        # These numbers are large prime-like values chosen to create distinct colors when modulo 255 is applied.
+        # The idea is that these large values, when multiplied by class indices and then taken modulo 255,
+        # will generate unique and fairly evenly distributed colors across the spectrum.
         palette = np.array([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
-        colors = np.array([i for i in range(21)])[:, None] * palette
+
+        num_of_classes = output.shape[0]
+        colors = np.array([i for i in range(num_of_classes)])[:, None] * palette
         colors = (colors % 255).astype("uint8")
 
         # Convert the model output to an image
