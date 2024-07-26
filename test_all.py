@@ -1,10 +1,9 @@
 import os
+import sys
 import time
 import unittest
 import requests
-import numpy as np
 import torch
-from PIL import Image
 from torchvision.models.segmentation import deeplabv3_mobilenet_v3_large
 import subprocess
 
@@ -12,7 +11,6 @@ from model_api import OnnxModelHandler, TorchModelHandler, ModelComparator
 from fast_api import create_app
 from wrapper_class import SegmentationModelAI
 import uvicorn
-from multiprocessing import Process
 from bs4 import BeautifulSoup
 
 
@@ -70,8 +68,9 @@ class TestAPI(unittest.TestCase):
     def setUpClass(cls):
         # Ensure any previous server process is terminated
         cls.tearDownClass()
-        # Start the FastAPI server in a subprocess
-        cls.server_process = subprocess.Popen(['python', '-m', 'fast_api'])
+        # Use the Python interpreter from the current virtual environment
+        python_executable = sys.executable
+        cls.server_process = subprocess.Popen([python_executable, '-m', 'fast_api', '--model_type', 'torch'])
         # Wait for the server to start
         time.sleep(5)  # Adjust this if your server needs more time to start
 
