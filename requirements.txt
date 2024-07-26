@@ -1,0 +1,9 @@
+uvicorn
+numpy
+fastapi
+pillow
+torch
+torchvision
+onnx
+onnxruntime
+matplotlib
