@@ -212,7 +212,7 @@ class ModelComparator:
             tuple: The outputs of the PyTorch model and ONNX model.
         """
 
-        assert self.torch_handler.model_name != self.onnx_handler.model_name, \
+        assert self.torch_handler.model_name == self.onnx_handler.model_name, \
             f"torch model name ({self.torch_handler.model_name}) must be the same as " \
             f"onnx model name ({self.onnx_handler.model_name})"
 

@@ -22,24 +22,32 @@ This project provides a FastAPI application for image segmentation using pre-tra
 - **pt_to_onnx.py**: Script to convert PyTorch models to ONNX and compare their outputs.
 - **wrapper_class.py**: Contains the `SegmentationModelAI` class that wraps model inference.
 
+
 ## Setup Instructions
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-repo/image-segmentation-api.git
-   cd image-segmentation-api
+   git clone https://github.com/YairSmadar/DeepKeepExercise.git
+   cd DeepKeepExercise
    ```
 
 2. **Create a virtual environment**:
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+   - **On Linux/macOS**:
+     ```sh
+     python -m venv venv
+     source venv/bin/activate
+     ```
+   - **On Windows**:
+     ```cmd
+     python -m venv venv
+     venv\Scripts\activate
+     ```
 
 3. **Install dependencies**:
    ```sh
    pip install -r requirements.txt
    ```
+
 
 ## Usage
 
