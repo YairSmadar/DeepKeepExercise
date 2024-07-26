@@ -55,7 +55,7 @@ pip install -r requirements.txt
 To convert a PyTorch model to ONNX format and compare the outputs:
 
 ```bash
-python pt_to_onnx.py --image sample_image.png --onnx_output_path model.onnx --visualize --model_name deeplabv3_mobilenet_v3_large
+python pt_to_onnx.py --image img.png --onnx_output_path model.onnx --visualize --model_name deeplabv3_mobilenet_v3_large
 ```
 
 - `--image`: Path to the input image for comparison.
