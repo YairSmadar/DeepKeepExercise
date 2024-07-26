@@ -117,7 +117,8 @@ def main():
     args = parser()
 
     assert not (args.model_type == 'onnx' and not os.path.exists(args.model_path)), \
-        "When using ONNX as model type, the model_path must be correct."
+        "When using ONNX as model type, the model_path must be correct.\n" \
+        "To convert a PyTorch model to ONNX, use the pt_to_onnx.py script."
 
     model_types = {
         'onnx': OnnxModelHandler,
