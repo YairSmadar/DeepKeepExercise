@@ -1,4 +1,6 @@
 import argparse
+import os.path
+
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse
 from PIL import Image
@@ -113,6 +115,9 @@ def main():
     Main function to setup SegmentationModelAI and start FastAPI app.
     """
     args = parser()
+
+    assert not (args.model_type == 'onnx' and not os.path.exists(args.model_path)), \
+        "When using ONNX as model type, the model_path must be correct."
 
     model_types = {
         'onnx': OnnxModelHandler,

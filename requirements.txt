@@ -7,3 +7,6 @@ torchvision
 onnx
 onnxruntime
 matplotlib
+requests
+opencv-python
+beautifulsoup4

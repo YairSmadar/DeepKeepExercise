@@ -50,7 +50,7 @@ class ImageManager:
                     image = cv2.imread(image_source)
                     if image is not None:
                         return Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-                    raise ValueError("Unable to load image from the provided path.")
+                    raise ValueError(f"Unable to load image from the provided path {image_source}.")
         elif isinstance(image_source, (Image.Image, ImageFile.ImageFile)):
             return image_source.convert('RGB')
         elif isinstance(image_source, torch.Tensor):
