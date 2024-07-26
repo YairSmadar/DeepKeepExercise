@@ -94,6 +94,8 @@ class TorchModelHandler(BaseModelHandler):
                 pretrained=is_pretrained)
         }
 
+        assert self.model_name in models.keys(), f"Model name {self.model_name} not found in available models."
+
         return models[self.model_name]
 
     def run_inference(self, input_tensor: torch.Tensor | np.ndarray) -> np.ndarray:
@@ -220,6 +222,9 @@ class ModelComparator:
             {
                 'deeplabv3_mobilenet_v3_large': DeepLabV3image
             }
+
+        assert self.torch_handler.model_name in image_class_types.keys(), \
+            f"Model name {self.torch_handler.model_name} not found in available models."
 
         image_manager = image_class_types[self.torch_handler.model_name](image_path)
         input_tensor = image_manager.preprocess()

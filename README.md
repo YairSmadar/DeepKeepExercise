@@ -97,19 +97,9 @@ To run the tests, follow these steps:
 2. **Run Tests**: You can run the tests using the following command:
 
    ```bash
-   python -m unittest discover -s path/to/tests -p "*.py"
-   ```
-
-   Alternatively, you can specify a particular test file:
-
-   ```bash
    python -m unittest path/to/tests/test_all.py
    ```
 
-**Example Command to Run API Tests**:
-```bash
-python -m unittest path/to/tests/test_all.py TestAPI
-```
 
 **Note**: Ensure that any necessary data files, such as images for inference, are correctly placed and paths are set in the test file.
 
